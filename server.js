@@ -1,43 +1,10 @@
 import express from "express";
+import conectarAoBanco from "./src/config/dbConfig.js";
 
 
-const posts = [
-  {
-    id: 1,
-    descricao: "Uma foto teste",
-    imagem: "https://placecats.com/millie/300/150"
-  },
-  {
-    id: 2,
-    descricao: "Gato dormindo em uma caixa",
-    imagem: "https://placecats.com/millie/300/150"
-  },
-  {
-    id: 3,
-    descricao: "Paisagem montanhosa",
-    imagem: "https://placecats.com/millie/300/150"
-  },
-  {
-    id: 4,
-    descricao: "Cachorro brincando no parque",
-    imagem: "https://placecats.com/millie/300/150"
-  },
-  {
-    id: 5,
-    descricao: "Comida deliciosa",
-    imagem: "https://placecats.com/millie/300/150"
-  },
-  {
-    id: 6,
-    descricao: "Cidade à noite",
-    imagem: "https://placecats.com/millie/300/150"
-  },
-  {
-    id: 7,
-    descricao: "Bebê sorrindo",
-    imagem: "https://placecats.com/millie/300/150"
-  }
-];
+console.log(process.env.STRING_CONEXAO);
+console.log(process.env.STRING_CONEXAO);
+await conectarAoBanco(process.env.STRING_CONEXAO);
 
 
 const app = express();
