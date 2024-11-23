@@ -1,0 +1,12 @@
+[core]
+	repositoryformatversion = 0
+	filemode = true
+	bare = false
+	logallrefupdates = true
+	ignorecase = true
+[remote "origin"]
+	url = https://github.com/guilhermeonrails/backend-instabytes.git
+	fetch = +refs/heads/*:refs/remotes/origin/*
+[branch "aula_5"]
+	remote = origin
+	merge = refs/heads/aula_5
