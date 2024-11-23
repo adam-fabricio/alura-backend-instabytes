@@ -1,30 +1,14 @@
 import express from "express";
-import conectarAoBanco from "./src/config/dbConfig.js";
-
-
-console.log(process.env.STRING_CONEXAO);
-console.log(process.env.STRING_CONEXAO);
-await conectarAoBanco(process.env.STRING_CONEXAO);
-
+import routes from "./src/routes/postsRoutes.js";
 
 const app = express();
-app.use(express.json());
+
+app.use(express.static("uploads"));
+routes(app);
+
+// Inicia o servidor Express na porta 3000. A função callback (seta de função)
+// é executada quando o servidor estiver ouvindo.
 app.listen(3000, () => {
-  console.log("Servidor escutando...");
+  console.log("Servidor escutando..."); // Mensagem de log indicando que o servidor está ativo
 });
 
-app.get("/posts", (req, res) => {
-  res.status(200).json(posts);
-});
-
-
-function buscarPostPorID(id) {
-  return posts.findIndex((post) => {
-    return post.id == Number(id);
-  });
-}
-
-app.get("/posts/:id", (req, res) => {
-  const index = buscarPostPorID(req.params.id);
-  res.status(200).json(posts[index]);
-});
